@@ -16,8 +16,9 @@ Welcome to the world of battleships! This is a frontend application for the clas
 - CSS
 - JavaScript
 - React
-- Bootstrap
+- Material-UI
 - Next.js
+- Typescript
 
 ## How to Run
 
