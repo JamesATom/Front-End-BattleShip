@@ -82,8 +82,9 @@ export default function BoardOfSelf(props: any) {
                 const newGrid = grid.map((row, rowIndex) => {
 
                     return row.map((col: any, colIndex: any) => {
+                        const key = `${rowIndex}${colIndex}`;
                         if (parseInt(`${rowIndex}${colIndex}`) === currentId) {
-                            return <div className='ifStatement'
+                            return <div key={key} className='ifStatement'
                                     style={{
                                         backgroundImage: `url(${tempUrl.url})`,
                                         backgroundPosition: `${xOffset}px -${yOffset}px` }} />
@@ -92,7 +93,7 @@ export default function BoardOfSelf(props: any) {
                             counter += 10;
                             counter2 += 1;
                             yOffset += 25;
-                            return <div className='ifStatement'
+                            return <div className='ifStatement' key={key}
                                     style={{
                                         backgroundImage: `url(${tempUrl.url})`,
                                         backgroundPosition: `${xOffset}px -${yOffset}px` }} />
@@ -121,8 +122,9 @@ export default function BoardOfSelf(props: any) {
         } else {
             const newGrid = grid.map((row, rowIndex) => {
                 return row.map((col: any, colIndex: any) => {
+                    const key = `${rowIndex}${colIndex}`;
                     if (parseInt(`${rowIndex}${colIndex}`) == currentId) {
-                        return <img className='elseImage'
+                        return <img className='elseImage' key={key}
                                 src={tempUrl.url} 
                                 alt={tempUrl.name} />
                     } else {
