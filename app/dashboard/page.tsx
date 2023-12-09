@@ -12,7 +12,7 @@ export default function Dashboard() {
     const connectionEstablished = useRef(false);
     const router = useRouter();
 
-    if (!sessionStorage.getItem('username')) router.push('/');
+    if (!window.sessionStorage.getItem('username')) router.push('/');
 
     useEffect(() => {
         function handleMessage1(event: MessageEvent) {
@@ -53,6 +53,16 @@ export default function Dashboard() {
         };
     }, []);
 
+    useEffect(() => {
+        window.history.pushState(null, '', window.location.pathname);
+
+        window.addEventListener('popstate', onBackButtonEvent);
+        
+        return () => {
+            window.removeEventListener('popstate', onBackButtonEvent);
+        }
+    }, []);
+
     const handleOpenInside2 = () => {
         connection.send(JSON.stringify({ 
             type: MESSAGE_TYPES.REMOVE_USER, 
@@ -90,16 +100,6 @@ export default function Dashboard() {
         sessionStorage.removeItem('username');
         router.push('/');
     };
-
-    useEffect(() => {
-        window.history.pushState(null, '', window.location.pathname);
-
-        window.addEventListener('popstate', onBackButtonEvent);
-        
-        return () => {
-            window.removeEventListener('popstate', onBackButtonEvent);
-        }
-    }, []);
 
     return (
         <div>
