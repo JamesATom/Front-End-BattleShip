@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { audioHit, audioMiss } from '../audio/audio';
+import Image from 'next/image';
 import '../generalBoard.css';
 
 export default function BoardOfSelf(props: any) {
@@ -10,20 +11,25 @@ export default function BoardOfSelf(props: any) {
     useEffect(() => {
         const newGrid = grid.map((row: any, rowIndex: number) => {
             return row.map((col: any, colIndex: number) => {
+                const key = `${rowIndex}${colIndex}`;
                 if (isShip && positionId == `${rowIndex}${colIndex}` && 
                     opponentName != sessionStorage.getItem('username') && myTurn) {
                         audioHit.play();
-                    return <img
+                    return <Image
+                        key={key}
                         src="/ships/fair.png"
-                        style={{ height: '28px', width: '28px' }} />
+                        style={{ height: '28px', width: '28px' }} alt={'fair'} />
                 } else if (!(isShip) && positionId == `${rowIndex}${colIndex}` && 
                     opponentName != sessionStorage.getItem('username') && myTurn) {
                         audioMiss.play();
-                    return <img
+                    return <Image
+                        key={key}
                         src="/waterMissed.jpg"
-                        style={{ height: '28px', width: '28px' }} />
+                        style={{ height: '28px', width: '28px' }} alt={'water missed'} />
                 } else if (positionId == '-1') {
-                    return <div style={{
+                    return <div 
+                    key={key}  
+                    style={{
                         backgroundImage: 'url("/bgCanvas.png")'
                     }}/>
                 } else {

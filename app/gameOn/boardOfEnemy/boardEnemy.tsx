@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { audioHit, audioMiss } from '../audio/audio';
+import Image from 'next/image';
 import '../generalBoard.css';
 
 export default function BoardOfEnemy(props: any) {
@@ -11,20 +12,23 @@ export default function BoardOfEnemy(props: any) {
     useEffect(() => {
         const newGrid = grid.map((row: any, rowIndex: number) => {
             return row.map((col: any, colIndex: number) => {
-                if (isShip && positionId == `${rowIndex}${colIndex}` && 
+                const key = `${rowIndex}${colIndex}`;
+                if (isShip && positionId == key && 
                     opponentName == sessionStorage.getItem('username') && !(myTurn)) {
                         audioHit.play();
-                    return <img
+                    return <Image
+                        key={key}
                         src="/ships/fair.png"
-                        style={{ height: '28px', width: '28px' }} />
-                } else if (!(isShip) && positionId == `${rowIndex}${colIndex}` && 
+                        style={{ height: '28px', width: '28px' }} alt={'fair'} />
+                } else if (!(isShip) && positionId == key && 
                     opponentName == sessionStorage.getItem('username') && !(myTurn)) {
                         audioMiss.play();
-                    return <img
+                    return <Image
+                        key={key}
                         src="/waterMissed.jpg"
-                        style={{ height: '28px', width: '28px' }} />
+                        style={{ height: '28px', width: '28px' }} alt={'water missed'} />
                 } else if (positionId == '-1') {
-                    return <div style={{
+                    return <div key={key} style={{
                         backgroundImage: 'url("/bgCanvas.png")'
                     }}/>
                 } else {
@@ -33,8 +37,9 @@ export default function BoardOfEnemy(props: any) {
             });
         });
         setGrid(newGrid);
-
+    
     }, [positionId, isShip, myTurn, opponentName]);
+    
 
     const handleHover = (event: React.MouseEvent<HTMLDivElement>) => {
         event.currentTarget.style.backgroundImage = 'url(/siman.jpg)';
