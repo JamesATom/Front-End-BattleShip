@@ -51,7 +51,7 @@ export default function BoardOfSelf(props: any) {
 
                 {grid.map((row, rowIndex) => (
                     <div 
-                    key={rowIndex}
+                    key={`row_${rowIndex}`}
                     style={{ display: 'flex' }}>
 
                     {row.map((col: any, colIndex: React.Key) => (
@@ -67,7 +67,7 @@ export default function BoardOfSelf(props: any) {
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat'
                         }}
-                        key={colIndex} >
+                        key={`col_${rowIndex}_${colIndex}`} >
                             {col}
                         </div>
 
@@ -76,7 +76,7 @@ export default function BoardOfSelf(props: any) {
                 ))}
 
             </div>
-
+            
         </div>
     );
 }

@@ -66,17 +66,17 @@ export default function BoardOfEnemy(props: any) {
             <div className='titleOfBoard'>
                 <h1>Board of Enemy</h1>
             </div>
-        
+
             <div className="board">
 
                 {grid.map((row, rowIndex) => (
-                    <div style={{ display: 'flex' }} key={rowIndex}>
+                    <div style={{ display: 'flex' }} key={`row_${rowIndex}`}>
 
                         {row.map((col: any, colIndex: React.Key) => (
                             <div 
-                            id={`${rowIndex}${colIndex}`}
+                            id={`cell_${rowIndex}_${colIndex}`}
                             className="col" 
-                            key={colIndex}
+                            key={`col_${rowIndex}_${colIndex}`}
                             onMouseEnter={myTurn ? handleHover : undefined}
                             onMouseLeave={myTurn ? handleLeave : undefined}
                             onClick={myTurn ? handleClick : undefined}
