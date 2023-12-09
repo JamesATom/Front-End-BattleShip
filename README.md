@@ -79,22 +79,41 @@ Citations:
 [2] https://www.knowledgehut.com/blog/web-development/package-json-scripts-node-js
 
 [3] https://nextjs.org/docs/pages/building-your-application/configuring/eslint
+
 [4] https://github.com/pauladanielafarias/salvo-battleship
+
 [5] https://dyte.io/blog/package-json-scripts/
+
 [6] https://nextjs.org/docs/getting-started/installation
+
 [7] https://rivenintech.com/projects/battleship-game-in-readme
+
 [8] https://docs.npmjs.com/cli/v10/using-npm/scripts/
+
 [9] https://nextjs.org/docs/pages/api-reference/next-cli
+
 [10] https://softwareengineering.stackexchange.com/questions/415105/documenting-a-project-in-a-readme-md-and-in-a-wiki-page
+
 [11] https://www.upgrad.com/blog/introduction-to-package-json-scripts-in-node-js/
+
 [12] https://github.com/vercel/next.js/issues/55094
+
 [13] https://www.toptal.com/nodejs/introducing-battlescripts-bots-ships-mayhem
+
 [14] https://heynode.com/tutorial/what-are-npm-scripts/
+
 [15] https://stackoverflow.com/questions/77013157/next-js-development-server-is-not-starting-after-running-npm-run-dev
+
 [16] https://www.reddit.com/r/learnjavascript/comments/qrmkqu/would_someone_out_there_with_some_experience_with/
+
 [17] https://docs.npmjs.com/files/package.json/
+
 [18] https://nextjs.org/docs/app/api-reference/next-config-js/eslint
+
 [19] https://crates.io/crates/battleship/1.1.0
+
 [20] https://www.geeksforgeeks.org/introduction-to-npm-scripts/
+
 [21] https://dev.to/nausaf/set-up-linting-and-formatting-for-code-and-scss-files-in-a-nextjs-project-43fb
+
 [22] https://spacejelly.dev/posts/how-to-automate-code-linting-in-next-js-with-eslint-husky-git-hooks/
