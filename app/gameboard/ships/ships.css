@@ -1,0 +1,46 @@
+.centered-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+.ship-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(76, 76, 160);
+    background-color: rgba(109, 128, 155, 0.9);
+    border-radius: 5px;
+}
+  
+.ship-card-inner {
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+    width: 140px;
+}
+
+.ship-card-inner2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.ship-card-inner2 h4 {
+    padding: 0;
+    margin: 0;
+}

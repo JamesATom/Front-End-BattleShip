@@ -1,0 +1,66 @@
+/* Styles for the main container */
+.best-players-container {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+    border: 1px solid;
+    width: 450px;
+    height: 300px;
+    background-color: rgba(109, 128, 155, 0.9);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+  
+  /* Style for the "Best Players" heading */
+.best-players-heading {
+    width: 350px;
+    height: 30px;
+    font-size: 20px;
+    /* text-align: center; */
+}
+  
+  /* Style for the players table container */
+.players-table-container {
+    width: 350px;
+    height: 200px;
+    overflow: auto;
+}
+  
+  /* Style for the players table */
+.players-table {
+    border: 1px solid black;
+    width: 350px;
+    border-collapse: collapse;
+}
+  
+  /* Style for the table header */
+.players-table thead {
+    position: sticky;
+    top: 0;
+    background-color: rgba(127, 143, 166, 1);
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+  
+  /* Style for table header cells */
+.players-table th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+  
+  /* Style for table body cells */
+.players-table tbody td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+}
+
+.status {
+    color: rgb(12, 27, 240);
+    font-weight: 500;
+}

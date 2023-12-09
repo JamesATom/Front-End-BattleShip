@@ -1,0 +1,44 @@
+export enum MESSAGE_TYPES {
+    ADD_USER = 'ADD_USER',
+    REMOVE_USER = 'REMOVE_USER',
+    GET_USERS = 'GET_USERS',
+    GET_NUMBER_OF_USERS = 'GET_NUMBER_OF_USERS',
+    UPDATE_TABLE = 'UPDATE_TABLE',
+    JOIN_ROOM = 'JOIN_ROOM',
+    START_GAME = 'START_GAME',
+    LEAVE_ROOM = 'LEAVE_ROOM',
+    LEAVE_ROOM_DURING_GAME = 'LEAVE_ROOM_DURING_GAME',
+    BOARD_STATE_READY = 'BOARD_STATE_READY',
+    OPPONENT_FOUND = 'OPPONENT_FOUND',
+    PLAYER_MOVE = 'PLAYER_MOVE',
+    GET_ROOM_ID = 'GET_ROOM_ID',
+    GAME_OVER = 'GAME_OVER',
+    WHOSE_TURN = 'WHOSE_TURN',
+    CHECK_IF_THERE_IS_SHIP = 'CHECK_IF_THERE_IS_SHIP',
+    CHANGE_TURN = 'CHANGE_TURN',
+};
+
+export enum WARNINGS {
+    FULL_ROOM = 'FULL_ROOM',
+    WAITING_FOR_OPPONENT = 'WAITING_FOR_OPPONENT',
+    START_GAME = 'START_GAME',
+    OPPONENT_LEFT = 'OPPONENT_LEFT',
+    LEAVE_ROOM_DURING_GAME = 'LEAVE_ROOM_DURING_GAME',
+    YOU_ARE_LEAVING = 'YOU_ARE_LEAVING',
+    CHECK_IF_THERE_IS_SHIP = 'CHECK_IF_THERE_IS_SHIP',
+    CHANGE_TURN = 'CHANGE_TURN',
+}
+
+export enum ALERTS {
+    WAITING_FOR_OPPONENT = 'Waiting for opponent to be ready!',
+    GAME_IS_ON = 'Game is on!',
+    OPPONENT_LEFT = 'Opponent left the game!',
+    YOU_ARE_LEAVING = 'You are leaving the game!',
+    GAME_OVER = 'GAME_OVER',
+}
+
+export interface Player {
+    username: string;
+    status: string;
+    score: number;
+}

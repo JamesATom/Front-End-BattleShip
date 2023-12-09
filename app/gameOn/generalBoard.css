@@ -1,0 +1,47 @@
+.betweenBoards {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.betweenBoards h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    border: 1px solid black;
+    background-color: rgba(109, 128, 155, 0.9);
+}
+  
+.ParentBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;      
+}
+
+.titleOfBoard {
+    background-color: rgba(109, 128, 155, 0.9);
+    border: 1px solid black;
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;      
+}
+
+.board {
+    height: 300px;
+    width: 300px;
+}
+
+.col:hover {
+    cursor: pointer;
+}
+
+  
