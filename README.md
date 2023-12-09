@@ -75,7 +75,9 @@ We would like to thank all the contributors who have helped to build this game.
 
 Citations:
 [1] https://github.com/levatech007/battleship-frontend
+
 [2] https://www.knowledgehut.com/blog/web-development/package-json-scripts-node-js
+
 [3] https://nextjs.org/docs/pages/building-your-application/configuring/eslint
 [4] https://github.com/pauladanielafarias/salvo-battleship
 [5] https://dyte.io/blog/package-json-scripts/
