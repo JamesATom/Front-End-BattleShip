@@ -12,20 +12,23 @@ export default function BoardOfEnemy() {
             </div>
 
             <div className="board">
+
                 {grid.map((row, rowIndex) => (
-                    <div className="row" key={rowIndex}>
+                    <div className="row" key={`row_${rowIndex}`}>
 
-                    {row.map((col: any, colIndex: React.Key) => (
-                        <div
-                        className="col"
-                        key={colIndex} >
-
-
-                        </div>
-                    ))}
+                        {row.map((col: any, colIndex: React.Key) => (
+                            <div 
+                            id={`cell_${rowIndex}_${colIndex}`}
+                            className="col" 
+                            key={`col_${rowIndex}_${colIndex}`}
+                            >
+                                {col}
+                            </div>
+                        ))}
 
                     </div>
                 ))}
+
             </div>
         </div>
     );
