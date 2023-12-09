@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import MusicButton from './musicButton';
+import Image from 'next/image';
 import '../home.css';
 
 export default function SettingsButton() {
@@ -13,7 +14,7 @@ export default function SettingsButton() {
   return (
     <div>
       <button onClick={toggleSound} className="settings-button">
-        <img src="/settings_black_24dp.svg" alt="Settings" className="settings-icon" />
+        <Image src="/settings_black_24dp.svg" alt="Settings" className="settings-icon" />
       </button>
 
       {soundOn &&

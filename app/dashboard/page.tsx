@@ -53,46 +53,46 @@ export default function Dashboard() {
         };
     }, []);
 
+    const handleOpenInside2 = () => {
+        connection.send(JSON.stringify({ 
+            type: MESSAGE_TYPES.REMOVE_USER, 
+            username: sessionStorage.getItem('username') 
+        }));
+        connection.removeEventListener('open', handleOpenInside2);
+    };
+
+    const onBackButtonEvent = async (e: any) => {
+        e.preventDefault();
+        const username = sessionStorage.getItem('username');
+        const response = await fetch('http://localhost:8000/api/users', {
+                method: 'DELETE',
+                mode: 'cors', 
+                credentials: 'omit',
+                body: JSON.stringify({ username })
+            }).then((res) => {
+                if (res.status == 200) {
+                    return res.json();
+                } else {
+                    throw new Error(`Failed to remove username: ${res.statusText}`);
+                }
+            }).catch((error) => {
+                console.log(error);
+            });
+        
+        if (response.data) {
+            if (connection.readyState == WebSocket.OPEN) {
+                handleOpenInside2();
+            } else {
+                connection.addEventListener('open', handleOpenInside2);
+            }
+        }
+        
+        sessionStorage.removeItem('username');
+        router.push('/');
+    };
+
     useEffect(() => {
         window.history.pushState(null, '', window.location.pathname);
-
-        const handleOpenInside2 = () => {
-            connection.send(JSON.stringify({ 
-                type: MESSAGE_TYPES.REMOVE_USER, 
-                username: sessionStorage.getItem('username') 
-            }));
-            connection.removeEventListener('open', handleOpenInside2);
-        };
-
-        const onBackButtonEvent = async (e: any) => {
-            e.preventDefault();
-            const username = sessionStorage.getItem('username');
-            const response = await fetch('http://localhost:8000/api/users', {
-                    method: 'DELETE',
-                    mode: 'cors', 
-                    credentials: 'omit',
-                    body: JSON.stringify({ username })
-                }).then((res) => {
-                    if (res.status == 200) {
-                        return res.json();
-                    } else {
-                        throw new Error(`Failed to remove username: ${res.statusText}`);
-                    }
-                }).catch((error) => {
-                    console.log(error);
-                });
-            
-            if (response.data) {
-                if (connection.readyState == WebSocket.OPEN) {
-                    handleOpenInside2();
-                } else {
-                    connection.addEventListener('open', handleOpenInside2);
-                }
-            }
-            
-            sessionStorage.removeItem('username');
-            router.push('/');
-        };
 
         window.addEventListener('popstate', onBackButtonEvent);
         
@@ -100,7 +100,7 @@ export default function Dashboard() {
             window.removeEventListener('popstate', onBackButtonEvent);
         }
     }, []);
- 
+
     return (
         <div>
             <GameMode />
