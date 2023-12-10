@@ -1,8 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { audioHit, audioMiss } from '../audio/audio';
 import Image from 'next/image';
 import '../generalBoard.css';
+
+const audioHit = new Audio('/mp3/shot.mp3');
+const audioMiss = new Audio('/mp3/miss.mp3');
 
 export default function BoardOfEnemy(props: any) {
     const { myTurn, isShip, positionId, opponentName, checkIfThereIsShip } = props;
