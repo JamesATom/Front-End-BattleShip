@@ -72,7 +72,7 @@ export default function BoardOfSelf(props: any) {
             holdOn.forEach((val) => positionSetObject.add(val));
             setPositionSetObject(new Set(positionSetObject));
         }
-
+        
         if (tempUrl.size !== 1) {
             if (currentId + totalSize <= 100 + (currentId % 10)) {
                 let counter = 10;
@@ -164,8 +164,9 @@ export default function BoardOfSelf(props: any) {
 
                         {row.map((col: any, colIndex: React.Key) => (
                             <div 
-                            id={`cell_${rowIndex}_${colIndex}`}
+                            id={`${rowIndex}${colIndex}`}
                             className="col" 
+                            
                             key={`col_${rowIndex}_${colIndex}`}
                             onMouseEnter={handleHover}
                             onMouseLeave={handleLeave}

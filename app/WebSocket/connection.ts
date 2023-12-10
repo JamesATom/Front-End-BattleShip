@@ -10,9 +10,9 @@ connection.onopen = () => {
     console.log('WebSocket connection is open');
 };
 
-connection.onmessage = (event) => {
-    console.log('WebSocket message received:', event.data);
-};
+// connection.onmessage = (event) => {
+//     console.log('WebSocket message received:', event.data);
+// };
 
 connection.onclose = () => {
     console.log('WebSocket connection closed');

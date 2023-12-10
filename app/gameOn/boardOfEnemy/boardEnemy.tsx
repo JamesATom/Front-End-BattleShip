@@ -25,14 +25,18 @@ export default function BoardOfEnemy(props: any) {
                     return <Image
                         key={key}
                         src="/ships/fair.png"
-                        style={{ height: '28px', width: '28px' }} alt={'fair'} />
+                        height={28}
+                        width={28} 
+                        alt={'fair'} />
                 } else if (!(isShip) && positionId == key && 
                     opponentName == sessionStorage.getItem('username') && !(myTurn)) {
                         audioMiss.play();
                     return <Image
                         key={key}
                         src="/waterMissed.jpg"
-                        style={{ height: '28px', width: '28px' }} alt={'water missed'} />
+                        height={28}
+                        width={28}  
+                        alt={'water missed'} />
                 } else if (positionId == '-1') {
                     return <div key={key} style={{
                         backgroundImage: 'url("/bgCanvas.png")'
@@ -80,7 +84,7 @@ export default function BoardOfEnemy(props: any) {
 
                         {row.map((col: any, colIndex: React.Key) => (
                             <div 
-                            id={`cell_${rowIndex}_${colIndex}`}
+                            id={`${rowIndex}${colIndex}`}
                             className="col" 
                             key={`col_${rowIndex}_${colIndex}`}
                             onMouseEnter={myTurn ? handleHover : undefined}

@@ -26,7 +26,7 @@ export default function LoginForm() {
 
     const handleSubmit = async (event: { preventDefault: () => void }) => {
         event.preventDefault();
-
+        //https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users
         try {
             const response = await fetch('https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users', {
                 method: 'POST',

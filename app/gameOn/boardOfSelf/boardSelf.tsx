@@ -24,14 +24,18 @@ export default function BoardOfSelf(props: any) {
                     return <Image
                         key={key}
                         src="/ships/fair.png"
-                        style={{ height: '28px', width: '28px' }} alt={'fair'} />
+                        height={28}
+                        width={28} 
+                        alt={'fair'} />
                 } else if (!(isShip) && positionId == `${rowIndex}${colIndex}` && 
                     opponentName != sessionStorage.getItem('username') && myTurn) {
                         audioMiss.play();
                     return <Image
                         key={key}
                         src="/waterMissed.jpg"
-                        style={{ height: '28px', width: '28px' }} alt={'water missed'} />
+                        height={28}
+                        width={28}  
+                        alt={'water missed'} />
                 } else if (positionId == '-1') {
                     return <div 
                     key={key}  
