@@ -28,7 +28,7 @@ export default function LoginForm() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8000/api/users', {
+            const response = await fetch('https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users', {
                 method: 'POST',
                 mode: 'cors', 
                 credentials: 'omit',

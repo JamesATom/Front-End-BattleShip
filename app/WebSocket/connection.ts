@@ -1,4 +1,5 @@
-const url = 'ws://localhost:8000';
+// const url = 'ws://localhost:8000';
+const url = 'wss://battleshipgame-backend-b26558eb5106.herokuapp.com';
 const connection = new WebSocket(url);
 
 connection.onerror = (error) => {

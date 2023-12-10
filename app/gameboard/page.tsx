@@ -18,8 +18,10 @@ export default function GameBoard() {
     const router = useRouter();
     const scrollPositionRef = useRef(0);
 
-    if (!window.sessionStorage.getItem('username')) router.push('/');
-
+    if (typeof window !== 'undefined') {
+        if (sessionStorage.getItem('username')) router.push('/');
+    }
+    
     useEffect(() => {
         scrollPositionRef.current = window.pageYOffset;
 
