@@ -1,5 +1,9 @@
 // audioFiles.js
 'use client';
 
-export const audioHit = new Audio('/mp3/shot.mp3');
-export const audioMiss = new Audio('/mp3/miss.mp3');
+export let audioHit: HTMLAudioElement, audioMiss: HTMLAudioElement;
+
+if (typeof window !== 'undefined') {
+  audioHit = new Audio('/mp3/shot.mp3');
+  audioMiss = new Audio('/mp3/miss.mp3');
+}
