@@ -12,7 +12,7 @@ export default function Dashboard() {
     const connectionEstablished = useRef(false);
     const router = useRouter();
 
-    if (!window.sessionStorage.getItem('username')) router.push('/');
+    if (!sessionStorage.getItem('username')) router.push('/');
 
     useEffect(() => {
         function handleMessage1(event: MessageEvent) {
