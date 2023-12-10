@@ -19,7 +19,7 @@ export default function GameBoard() {
     const scrollPositionRef = useRef(0);
 
     if (typeof window !== 'undefined') {
-        if (sessionStorage.getItem('username')) router.push('/');
+        if (!sessionStorage.getItem('username')) router.push('/');
     }
     
     useEffect(() => {

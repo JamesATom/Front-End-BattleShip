@@ -15,7 +15,6 @@ export default function Dashboard() {
     if (typeof window !== 'undefined') {
         if (!sessionStorage.getItem('username')) router.push('/');
     }
-    
     useEffect(() => {
         function handleMessage1(event: MessageEvent) {
             setNumberOfPlayers(JSON.parse(event.data).message);
@@ -78,7 +77,7 @@ export default function Dashboard() {
 
     const onBackButtonEvent = async (e: any) => {
         e.preventDefault();
-        const username = sessionStorage.getItem('username');
+        const username = sessionStorage.getItem('username'); 
         const response = await fetch('https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users', {
                 method: 'DELETE',
                 mode: 'cors', 

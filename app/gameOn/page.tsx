@@ -16,7 +16,6 @@ export default function GameOn() {
     const connectionEstablished = useRef(false);
     const scrollPositionRef = useRef(0);
 
-    
     if (typeof window !== 'undefined') { 
         if (!sessionStorage.getItem('username') || !sessionStorage.getItem('roomID')) {
             router.push('/');
