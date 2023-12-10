@@ -16,7 +16,7 @@ export default function GameOn() {
     const connectionEstablished = useRef(false);
     const scrollPositionRef = useRef(0);
 
-    if (!window.sessionStorage.getItem('username') || !window.sessionStorage.getItem('roomID')) {
+    if (!sessionStorage.getItem('username') || !sessionStorage.getItem('roomID')) {
         router.push('/');
     }
 
@@ -55,25 +55,29 @@ export default function GameOn() {
     }, []);
 
     useEffect(() => {
-        scrollPositionRef.current = window.pageYOffset;
+        if (typeof window !== 'undefined') { 
+            scrollPositionRef.current = window.pageYOffset;
 
-        window.addEventListener('load', () => {
-            window.scrollTo(0, scrollPositionRef.current);
-        });
-
-        return () => {
-            window.removeEventListener('load', () => {
+            window.addEventListener('load', () => {
                 window.scrollTo(0, scrollPositionRef.current);
             });
-        };
+
+            return () => {
+                window.removeEventListener('load', () => {
+                    window.scrollTo(0, scrollPositionRef.current);
+                });
+            };
+        }
     }, []);
 
     useEffect(() => {
-        window.history.pushState(null, '', window.location.pathname);
-        window.addEventListener('popstate', onBackButtonEvent);
-        
-        return () => {
-            window.removeEventListener('popstate', onBackButtonEvent);
+        if (typeof window !== 'undefined') { 
+            window.history.pushState(null, '', window.location.pathname);
+            window.addEventListener('popstate', onBackButtonEvent);
+            
+            return () => {
+                window.removeEventListener('popstate', onBackButtonEvent);
+            }
         }
     }, []);
       
