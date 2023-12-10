@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MESSAGE_TYPES, WARNINGS, ALERTS } from '../types/types';
 import connection from '../WebSocket/connection';
@@ -16,8 +16,11 @@ export default function GameOn() {
     const connectionEstablished = useRef(false);
     const scrollPositionRef = useRef(0);
 
-    if (!sessionStorage.getItem('username') || !sessionStorage.getItem('roomID')) {
-        router.push('/');
+    
+    if (typeof window !== 'undefined') { 
+        if (!sessionStorage.getItem('username') || !sessionStorage.getItem('roomID')) {
+            router.push('/');
+        }
     }
 
     useEffect(() => {
