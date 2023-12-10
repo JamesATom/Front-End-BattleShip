@@ -40,26 +40,29 @@ export default function Dashboard() {
     }, []);
     
     useEffect(() => {
-        scrollPositionRef.current = window.pageYOffset;
+        if (typeof window !== 'undefined') { 
+            scrollPositionRef.current = window.pageYOffset;
 
-        window.addEventListener('load', () => {
-            window.scrollTo(0, scrollPositionRef.current);
-        });
-
-        return () => {
-            window.removeEventListener('load', () => {
+            window.addEventListener('load', () => {
                 window.scrollTo(0, scrollPositionRef.current);
             });
-        };
+
+            return () => {
+                window.removeEventListener('load', () => {
+                    window.scrollTo(0, scrollPositionRef.current);
+                });
+            };
+        }
     }, []);
 
     useEffect(() => {
-        window.history.pushState(null, '', window.location.pathname);
-
-        window.addEventListener('popstate', onBackButtonEvent);
-        
-        return () => {
-            window.removeEventListener('popstate', onBackButtonEvent);
+        if (typeof window !== 'undefined') {
+            window.history.pushState(null, '', window.location.pathname);
+            window.addEventListener('popstate', onBackButtonEvent);
+            
+            return () => {
+                window.removeEventListener('popstate', onBackButtonEvent);
+            }
         }
     }, []);
 
