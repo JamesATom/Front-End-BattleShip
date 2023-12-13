@@ -41,8 +41,25 @@ export default function Dashboard() {
     }, []);
 
     useEffect(() => {
-        const handleBeforeunload = (e: { preventDefault: () => void; returnValue: string; }) => {
+        const handleBeforeunload = async (e: { preventDefault: () => void; returnValue: string; }) => {
             e.preventDefault();
+            const username = sessionStorage.getItem('username');
+            // https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users 
+            const response = await fetch('https://battleshipgame-backend-b26558eb5106.herokuapp.com/api/users', {
+                    method: 'DELETE',
+                    mode: 'cors', 
+                    credentials: 'omit',
+                    body: JSON.stringify({ username })
+                }).then((res) => {
+                    if (res.status == 200) {
+                        return res.json();
+                    } else {
+                        throw new Error(`Failed to remove username: ${res.statusText}`);
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
+                
             if (connection.readyState == WebSocket.OPEN) {
                 connection.send(JSON.stringify({ 
                     type: MESSAGE_TYPES.DELETE_USER_AND_ROOM, 
