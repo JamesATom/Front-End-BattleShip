@@ -39,6 +39,26 @@ export default function Dashboard() {
             connection.onmessage = null;
         };
     }, []);
+
+    useEffect(() => {
+        const handleBeforeunload = (e: { preventDefault: () => void; returnValue: string; }) => {
+            e.preventDefault();
+            if (connection.readyState == WebSocket.OPEN) {
+                connection.send(JSON.stringify({ 
+                    type: MESSAGE_TYPES.DELETE_USER_AND_ROOM, 
+                    username: sessionStorage.getItem('username'),
+                    roomID: -1
+                }));
+            }
+            e.returnValue = '';
+        };
+
+        window.addEventListener('beforeunload', handleBeforeunload);
+    
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeunload);
+        };
+      }, []);
     
     useEffect(() => {
         if (typeof window !== 'undefined') { 

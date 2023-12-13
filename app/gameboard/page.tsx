@@ -37,6 +37,26 @@ export default function GameBoard() {
     }, []);
 
     useEffect(() => {
+        const handleBeforeunload = (e: { preventDefault: () => void; returnValue: string; }) => {
+            e.preventDefault();
+            if (connection.readyState == WebSocket.OPEN) {
+                connection.send(JSON.stringify({ 
+                    type: MESSAGE_TYPES.DELETE_USER_AND_ROOM, 
+                    username: sessionStorage.getItem('username'),
+                    roomID: sessionStorage.getItem('roomID')
+                }));
+            }
+            e.returnValue = '';
+        };
+
+        window.addEventListener('beforeunload', handleBeforeunload);
+    
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeunload);
+        };
+      }, []);
+
+    useEffect(() => {
         window.history.pushState(null, '', window.location.pathname);
         window.addEventListener('popstate', onBackButtonEvent);
         
