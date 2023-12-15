@@ -115,7 +115,11 @@ export default function GameBoard() {
 
     return (
         <>
-            <div className="ship-container">
+            <div style={{
+                top: 120,
+                left: 150,
+                position: 'absolute',
+            }}>
                 <Ships
                     positionSetObject={positionSetObject}
                     ships={ships} 
@@ -124,7 +128,11 @@ export default function GameBoard() {
                     setSelectedImage={setSelectedImage} />
             </div>
             
-            <div className="board-of-self-container">
+            <div style={{
+                position: 'absolute',
+                top: 100,
+                right: 600
+            }}>
                 <BoardOfSelf 
                     selectedImage={selectedImage} 
                     ships={ships} 
@@ -134,7 +142,11 @@ export default function GameBoard() {
                     setShipPositions={setShipPositions} />
             </div>
 
-            <div className="board-of-enemy-container">
+            <div style={{
+                position: 'absolute',
+                top: 100,
+                right: 200,
+            }}>
                 <BoardOfEnemy />
             </div>
         </>
