@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Inter } from 'next/font/google'
 import VideoLayout from "./video/videoLayout";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
                 <div style={{ minWidth: '1500px' }}>
                     <VideoLayout />
                     {children}
+                    <SpeedInsights />
                 </div>
             </body>
         </html>
